@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import * as fs from 'fs';
+import { MongoDbModule } from './mongodb/mongodb.module';
 import { RedisService } from './Redis/redis.service';
 
 const defaultConfig = () => {
@@ -17,8 +18,9 @@ const defaultConfig = () => {
       cache: false,
       load: [defaultConfig],
     }),
+    MongoDbModule.forTestDb(),
   ],
   providers: [RedisService],
-  exports: [RedisService],
+  exports: [RedisService, MongoDbModule.forTestDb()],
 })
 export class Utilities {}
