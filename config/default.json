@@ -1,7 +1,18 @@
 {
   "port": 3000,
   "redis": {
+    "connect": false,
     "host": "127.0.0.1",
     "port": 6379
+  },
+  "mongodb": {
+    "connect": true,
+    "username": "Cluster51421",
+    "password": "WXNsXX5FUVB6",
+    "cluster": "cluster51421",
+    "database": {
+      "test": "test",
+      "socialMediaApp": "social-media-app"
+    }
   }
 }
